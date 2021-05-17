@@ -23,3 +23,17 @@ Devemos controlar o nível de acoplamento na nossa aplicação (falaremos mais s
    "Abstrações não devem depender de implementações. Implementações devem depender de abstrações (Robert Martin)"<br /><br />
 [D]ependecy Inversion Principle (Princípio da inversão de dependências)<br />
    "Uma classe não deveria ser forçada a depender de metodos que nao utilizara (Robert Martin)"<br />
+
+<br /><br />
+O que aprendi?<br /><br />
+Que é mais interessante e mais seguro para o nosso código depender de interfaces (classes abstratas, assinaturas de métodos e interfaces em si) do que das implementações de uma classe;<br /><br />
+Que as interfaces são menos propensas a sofrer mudanças enquanto implementações podem mudar a qualquer momento;<br /><br />
+Que o Princípio de Inversão de Dependência (DIP) diz que implementações devem depender de abstrações e abstrações não devem depender de implementações;<br /><br />
+Que as interfaces devem definir apenas os métodos que fazem sentido para seu contexto;<br /><br />
+Que o Princípio de Segregação de Interfaces (ISP) diz que uma classe não deve ser obrigada a implementar um método que ela não precisa;<br /><br /><br />
+Os conceitos aprendidos neste treinamento formam o acrônimo SOLID<br />
+Single Responsibility Principle<br />
+Open Closed Principle<br />
+Liskov Substitution Principle<br />
+Interface Segregation Principle<br />
+Dependency Inversion Principle<br />
