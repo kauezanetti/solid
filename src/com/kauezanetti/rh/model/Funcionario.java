@@ -1,65 +1,52 @@
 package com.kauezanetti.rh.model;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDate;
-
-import com.kauezanetti.rh.ValidacaoException;
 
 public class Funcionario {
 
-	private String nome;
-	private String cpf;
-	private Cargo cargo;
-	private BigDecimal salario;
+	private DadosPessoais dadosPessoais;
 	private LocalDate dataUltimoReajuste;
-
+	
 	public Funcionario(String nome, String cpf, Cargo cargo, BigDecimal salario) {
-		this.nome = nome;
-		this.cpf = cpf;
-		this.cargo = cargo;
-		this.salario = salario;
+		this.dadosPessoais = new DadosPessoais(nome, cpf, cargo, salario);
 	}
 
-	public void reajustarSalario(BigDecimal aumento) {
-		BigDecimal percentualReajuste = aumento.divide(salario, RoundingMode.HALF_UP);
-		if (percentualReajuste.compareTo(new BigDecimal("0.4")) > 0) {
-			throw new ValidacaoException("Reajuste nao pode ser superior a 40% do salario!");
-		}
-		this.salario = this.salario.add(aumento);
+	public void atualizarSalario(BigDecimal novoSalario) {
+		this.dadosPessoais.setSalario(novoSalario);
 		this.dataUltimoReajuste = LocalDate.now();
 	}
 
 	public String getNome() {
-		return nome;
+		return this.dadosPessoais.getNome();
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.dadosPessoais.setNome(nome);
 	}
 
 	public String getCpf() {
-		return cpf;
+		return this.dadosPessoais.getCpf();
 	}
 
 	public void setCpf(String cpf) {
-		this.cpf = cpf;
+		this.dadosPessoais.setCpf(cpf);
 	}
 
 	public Cargo getCargo() {
-		return cargo;
+		return this.dadosPessoais.getCargo();
 	}
 
 	public void setCargo(Cargo cargo) {
-		this.cargo = cargo;
+		this.dadosPessoais.setCargo(cargo);
 	}
 
 	public BigDecimal getSalario() {
-		return salario;
+		return this.dadosPessoais.getSalario();
 	}
 
 	public void setSalario(BigDecimal salario) {
-		this.salario = salario;
+		this.dadosPessoais.setSalario(salario);
 	}
 
 	public LocalDate getDataUltimoReajuste() {
@@ -68,6 +55,10 @@ public class Funcionario {
 
 	public void setDataUltimoReajuste(LocalDate dataUltimoReajuste) {
 		this.dataUltimoReajuste = dataUltimoReajuste;
+	}
+
+	public void promover(Cargo novoCargo) {
+		this.dadosPessoais.setCargo(novoCargo);
 	}
 
 }
