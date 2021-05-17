@@ -1,4 +1,4 @@
-package com.kauezanetti.rh.service;
+package com.kauezanetti.rh.service.reajuste;
 
 import java.math.BigDecimal;
 import java.util.List;
